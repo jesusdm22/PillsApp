@@ -1,13 +1,13 @@
 Idea:
-	PillsApp
+	Pills App
 
 
 Descripción:
 	Se trata de una aplicación con la cual podemos llevar un registro de los
-	medicamentos que tenemos que tomar, añadiendo recordatorios, tipo de medicamento, dosis, 
+	medicamentos que tenemos que tomar, añadiendo recordatorios, tipo de medicamento, dosis,
 	y descripción del mismo.
-	
-	Con esto resolvemos la problemática de que por ejemplo a las personas que le lleven los medicamentos 
+
+	Con esto resolvemos la problemática de que por ejemplo a las personas que le lleven los medicamentos
 	a sus familiares de edad más avanzada tengan una fácil gestión de los mismos.
 
 
@@ -21,7 +21,7 @@ Equipo:
 Acceso al mockup para ver el diseño por si hay dudas:
 	https://wireframepro.mockflow.com/view/M07f104073cfd5f5df7b05028c384dbb51574080008946
 
-Colores y fuente: 
+Colores y fuente:
 		Fuente -> Roboto
 		Colores: #89d9e1 (Azul)
 			 #000000 (Negro)
@@ -35,7 +35,7 @@ Elementos:
 		-detalles
 		-agregarMedicamento
 		-footer
-	
+
 	Clases:
 		-medicamento
 			·id (number)
