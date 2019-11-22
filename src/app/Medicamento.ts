@@ -1,7 +1,7 @@
 export class Medicamento {
   id: number;
   nombre: string;
-  tipo: tipo;
+  tipo: Tipo;
   dosis: number;
   fechaHora: string;
   descripcion: string;
