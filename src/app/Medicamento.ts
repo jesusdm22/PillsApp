@@ -5,4 +5,5 @@ export class Medicamento {
   dosis: number;
   fechaHora: string;
   descripcion: string;
+
 }
