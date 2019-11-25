@@ -9,6 +9,7 @@ import { DetallesComponent } from './detalles/detalles.component';
 import { AgregarMedicamentoComponent } from './agregar-medicamento/agregar-medicamento.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
+import { AplicacionComponent } from './aplicacion/aplicacion.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { LoginComponent } from './login/login.component';
     DetallesComponent,
     AgregarMedicamentoComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    AplicacionComponent
   ],
   imports: [
     BrowserModule
