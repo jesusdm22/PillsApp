@@ -1,358 +1,106 @@
-<div id="calendar"></div>
-<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
-<script>
-    !function() {
 
-        var today = moment();
-
-        function Calendar(selector, events) {
-            this.el = document.querySelector(selector);
-            this.events = events;
-            this.current = moment().date(1);
-            this.draw();
-            var current = document.querySelector('.today');
-            if(current) {
-                var self = this;
-                window.setTimeout(function() {
-                    self.openDay(current);
-                }, 500);
-            }
-        }
-
-        Calendar.prototype.draw = function() {
-            //Create Header
-            this.drawHeader();
-
-            //Draw Month
-            this.drawMonth();
-
-            this.drawLegend();
-        }
-
-        Calendar.prototype.drawHeader = function() {
-            var self = this;
-            if(!this.header) {
-                //Create the header elements
-                this.header = createElement('div', 'header');
-                this.header.className = 'header';
-
-                this.title = createElement('h1');
-
-                var right = createElement('div', 'right');
-                right.addEventListener('click', function() { self.nextMonth(); });
-
-                var left = createElement('div', 'left');
-                left.addEventListener('click', function() { self.prevMonth(); });
-
-                //Append the Elements
-                this.header.appendChild(this.title);
-                this.header.appendChild(right);
-                this.header.appendChild(left);
-                this.el.appendChild(this.header);
-            }
-
-            this.title.innerHTML = this.current.format('MMMM YYYY');
-        }
-
-        Calendar.prototype.drawMonth = function() {
-            var self = this;
-
-            this.events.forEach(function(ev) {
-                ev.date = self.current.clone().date(Math.random() * (29 - 1) + 1);
-            });
-
-
-            if(this.month) {
-                this.oldMonth = this.month;
-                this.oldMonth.className = 'month out ' + (self.next ? 'next' : 'prev');
-                this.oldMonth.addEventListener('webkitAnimationEnd', function() {
-                    self.oldMonth.parentNode.removeChild(self.oldMonth);
-                    self.month = createElement('div', 'month');
-                    self.backFill();
-                    self.currentMonth();
-                    self.fowardFill();
-                    self.el.appendChild(self.month);
-                    window.setTimeout(function() {
-                        self.month.className = 'month in ' + (self.next ? 'next' : 'prev');
-                    }, 16);
-                });
-            } else {
-                this.month = createElement('div', 'month');
-                this.el.appendChild(this.month);
-                this.backFill();
-                this.currentMonth();
-                this.fowardFill();
-                this.month.className = 'month new';
-            }
-        }
-
-        Calendar.prototype.backFill = function() {
-            var clone = this.current.clone();
-            var dayOfWeek = clone.day();
-
-            if(!dayOfWeek) { return; }
-
-            clone.subtract('days', dayOfWeek+1);
-
-            for(var i = dayOfWeek; i > 0 ; i--) {
-                this.drawDay(clone.add('days', 1));
-            }
-        }
-
-        Calendar.prototype.fowardFill = function() {
-            var clone = this.current.clone().add('months', 1).subtract('days', 1);
-            var dayOfWeek = clone.day();
-
-            if(dayOfWeek === 6) { return; }
-
-            for(var i = dayOfWeek; i < 6 ; i++) {
-                this.drawDay(clone.add('days', 1));
-            }
-        }
-
-        Calendar.prototype.currentMonth = function() {
-            var clone = this.current.clone();
-
-            while(clone.month() === this.current.month()) {
-                this.drawDay(clone);
-                clone.add('days', 1);
-            }
-        }
-
-        Calendar.prototype.getWeek = function(day) {
-            if(!this.week || day.day() === 0) {
-                this.week = createElement('div', 'week');
-                this.month.appendChild(this.week);
-            }
-        }
-
-        Calendar.prototype.drawDay = function(day) {
-            var self = this;
-            this.getWeek(day);
-
-            //Outer Day
-            var outer = createElement('div', this.getDayClass(day));
-            outer.addEventListener('click', function() {
-                self.openDay(this);
-            });
-
-            //Day Name
-            var name = createElement('div', 'day-name', day.format('ddd'));
-
-            //Day Number
-            var number = createElement('div', 'day-number', day.format('DD'));
-
-
-            //Events
-            var events = createElement('div', 'day-events');
-            this.drawEvents(day, events);
-
-            outer.appendChild(name);
-            outer.appendChild(number);
-            outer.appendChild(events);
-            this.week.appendChild(outer);
-        }
-
-        Calendar.prototype.drawEvents = function(day, element) {
-            if(day.month() === this.current.month()) {
-                var todaysEvents = this.events.reduce(function(memo, ev) {
-                    if(ev.date.isSame(day, 'day')) {
-                        memo.push(ev);
-                    }
-                    return memo;
-                }, []);
-
-                todaysEvents.forEach(function(ev) {
-                    var evSpan = createElement('span', ev.color);
-                    element.appendChild(evSpan);
-                });
-            }
-        }
-
-        Calendar.prototype.getDayClass = function(day) {
-            classes = ['day'];
-            if(day.month() !== this.current.month()) {
-                classes.push('other');
-            } else if (today.isSame(day, 'day')) {
-                classes.push('today');
-            }
-            return classes.join(' ');
-        }
-
-        Calendar.prototype.openDay = function(el) {
-            var details, arrow;
-            var dayNumber = +el.querySelectorAll('.day-number')[0].innerText || +el.querySelectorAll('.day-number')[0].textContent;
-            var day = this.current.clone().date(dayNumber);
-
-            var currentOpened = document.querySelector('.details');
-
-            //Check to see if there is an open detais box on the current row
-            if(currentOpened && currentOpened.parentNode === el.parentNode) {
-                details = currentOpened;
-                arrow = document.querySelector('.arrow');
-            } else {
-                //Close the open events on differnt week row
-                //currentOpened && currentOpened.parentNode.removeChild(currentOpened);
-                if(currentOpened) {
-                    currentOpened.addEventListener('webkitAnimationEnd', function() {
-                        currentOpened.parentNode.removeChild(currentOpened);
-                    });
-                    currentOpened.addEventListener('oanimationend', function() {
-                        currentOpened.parentNode.removeChild(currentOpened);
-                    });
-                    currentOpened.addEventListener('msAnimationEnd', function() {
-                        currentOpened.parentNode.removeChild(currentOpened);
-                    });
-                    currentOpened.addEventListener('animationend', function() {
-                        currentOpened.parentNode.removeChild(currentOpened);
-                    });
-                    currentOpened.className = 'details out';
-                }
-
-                //Create the Details Container
-                details = createElement('div', 'details in');
-
-                //Create the arrow
-                var arrow = createElement('div', 'arrow');
-
-                //Create the event wrapper
-
-                details.appendChild(arrow);
-                el.parentNode.appendChild(details);
-            }
-
-            var todaysEvents = this.events.reduce(function(memo, ev) {
-                if(ev.date.isSame(day, 'day')) {
-                    memo.push(ev);
-                }
-                return memo;
-            }, []);
-
-            this.renderEvents(todaysEvents, details);
-
-            arrow.style.left = el.offsetLeft - el.parentNode.offsetLeft + 27 + 'px';
-        }
-
-        Calendar.prototype.renderEvents = function(events, ele) {
-            //Remove any events in the current details element
-            var currentWrapper = ele.querySelector('.events');
-            var wrapper = createElement('div', 'events in' + (currentWrapper ? ' new' : ''));
-
-            events.forEach(function(ev) {
-                var div = createElement('div', 'event');
-                var square = createElement('div', 'event-category ' + ev.color);
-                var span = createElement('span', '', ev.eventName);
-
-                div.appendChild(square);
-                div.appendChild(span);
-                wrapper.appendChild(div);
-            });
-
-            if(!events.length) {
-                var div = createElement('div', 'event empty');
-                var span = createElement('span', '', 'No Events');
-
-                div.appendChild(span);
-                wrapper.appendChild(div);
-            }
-
-            if(currentWrapper) {
-                currentWrapper.className = 'events out';
-                currentWrapper.addEventListener('webkitAnimationEnd', function() {
-                    currentWrapper.parentNode.removeChild(currentWrapper);
-                    ele.appendChild(wrapper);
-                });
-                currentWrapper.addEventListener('oanimationend', function() {
-                    currentWrapper.parentNode.removeChild(currentWrapper);
-                    ele.appendChild(wrapper);
-                });
-                currentWrapper.addEventListener('msAnimationEnd', function() {
-                    currentWrapper.parentNode.removeChild(currentWrapper);
-                    ele.appendChild(wrapper);
-                });
-                currentWrapper.addEventListener('animationend', function() {
-                    currentWrapper.parentNode.removeChild(currentWrapper);
-                    ele.appendChild(wrapper);
-                });
-            } else {
-                ele.appendChild(wrapper);
-            }
-        }
-
-        Calendar.prototype.drawLegend = function() {
-            var legend = createElement('div', 'legend');
-            var calendars = this.events.map(function(e) {
-                return e.calendar + '|' + e.color;
-            }).reduce(function(memo, e) {
-                if(memo.indexOf(e) === -1) {
-                    memo.push(e);
-                }
-                return memo;
-            }, []).forEach(function(e) {
-                var parts = e.split('|');
-                var entry = createElement('span', 'entry ' +  parts[1], parts[0]);
-                legend.appendChild(entry);
-            });
-            this.el.appendChild(legend);
-        }
-
-        Calendar.prototype.nextMonth = function() {
-            this.current.add('months', 1);
-            this.next = true;
-            this.draw();
-        }
-
-        Calendar.prototype.prevMonth = function() {
-            this.current.subtract('months', 1);
-            this.next = false;
-            this.draw();
-        }
-
-        window.Calendar = Calendar;
-
-        function createElement(tagName, className, innerText) {
-            var ele = document.createElement(tagName);
-            if(className) {
-                ele.className = className;
-            }
-            if(innerText) {
-                ele.innderText = ele.textContent = innerText;
-            }
-            return ele;
-        }
-    }();
-
-    !function() {
-        var data = [
-            { eventName: 'Lunch Meeting w/ Mark', calendar: 'Work', color: 'orange' },
-            { eventName: 'Interview - Jr. Web Developer', calendar: 'Work', color: 'orange' },
-            { eventName: 'Demo New App to the Board', calendar: 'Work', color: 'orange' },
-            { eventName: 'Dinner w/ Marketing', calendar: 'Work', color: 'orange' },
-
-            { eventName: 'Game vs Portalnd', calendar: 'Sports', color: 'blue' },
-            { eventName: 'Game vs Houston', calendar: 'Sports', color: 'blue' },
-            { eventName: 'Game vs Denver', calendar: 'Sports', color: 'blue' },
-            { eventName: 'Game vs San Degio', calendar: 'Sports', color: 'blue' },
-
-            { eventName: 'School Play', calendar: 'Kids', color: 'yellow' },
-            { eventName: 'Parent/Teacher Conference', calendar: 'Kids', color: 'yellow' },
-            { eventName: 'Pick up from Soccer Practice', calendar: 'Kids', color: 'yellow' },
-            { eventName: 'Ice Cream Night', calendar: 'Kids', color: 'yellow' },
-
-            { eventName: 'Free Tamale Night', calendar: 'Other', color: 'green' },
-            { eventName: 'Bowling Team', calendar: 'Other', color: 'green' },
-            { eventName: 'Teach Kids to Code', calendar: 'Other', color: 'green' },
-            { eventName: 'Startup Weekend', calendar: 'Other', color: 'green' }
-        ];
-
-
-
-        function addDate(ev) {
-
-        }
-
-        var calendar = new Calendar('#calendar', data);
-
-    }();
-
-</script>
+<div class="card">
+  <h3 class="card-header" id="monthAndYear"></h3>
+  <table class="table table-bordered table-responsive-sm" id="calendar">
+    <thead>
+    <tr>
+      <th>Sun</th>
+      <th>Mon</th>
+      <th>Tue</th>
+      <th>Wed</th>
+      <th>Thu</th>
+      <th>Fri</th>
+      <th>Sat</th>
+    </tr>
+    </thead>
+
+    <tbody id="calendar-body">
+
+    </tbody>
+  </table>
+
+  <div class="form-inline">
+
+    <button class="btn btn-outline-primary col-sm-6" id="previous" onclick="previous()">Previous</button>
+
+    <button class="btn btn-outline-primary col-sm-6" id="next" onclick="next()">Next</button>
+  </div>
+  <br/>
+  <form class="form-inline">
+    <label class="lead mr-2 ml-2" for="month">Jump To: </label>
+    <select class="form-control col-sm-4" name="month" id="month" onchange="jump()">
+      <option value=0>Jan</option>
+      <option value=1>Feb</option>
+      <option value=2>Mar</option>
+      <option value=3>Apr</option>
+      <option value=4>May</option>
+      <option value=5>Jun</option>
+      <option value=6>Jul</option>
+      <option value=7>Aug</option>
+      <option value=8>Sep</option>
+      <option value=9>Oct</option>
+      <option value=10>Nov</option>
+      <option value=11>Dec</option>
+    </select>
+
+
+    <label for="year"></label><select class="form-control col-sm-4" name="year" id="year" onchange="jump()">
+    <option value=1990>1990</option>
+    <option value=1991>1991</option>
+    <option value=1992>1992</option>
+    <option value=1993>1993</option>
+    <option value=1994>1994</option>
+    <option value=1995>1995</option>
+    <option value=1996>1996</option>
+    <option value=1997>1997</option>
+    <option value=1998>1998</option>
+    <option value=1999>1999</option>
+    <option value=2000>2000</option>
+    <option value=2001>2001</option>
+    <option value=2002>2002</option>
+    <option value=2003>2003</option>
+    <option value=2004>2004</option>
+    <option value=2005>2005</option>
+    <option value=2006>2006</option>
+    <option value=2007>2007</option>
+    <option value=2008>2008</option>
+    <option value=2009>2009</option>
+    <option value=2010>2010</option>
+    <option value=2011>2011</option>
+    <option value=2012>2012</option>
+    <option value=2013>2013</option>
+    <option value=2014>2014</option>
+    <option value=2015>2015</option>
+    <option value=2016>2016</option>
+    <option value=2017>2017</option>
+    <option value=2018>2018</option>
+    <option value=2019>2019</option>
+    <option value=2020>2020</option>
+    <option value=2021>2021</option>
+    <option value=2022>2022</option>
+    <option value=2023>2023</option>
+    <option value=2024>2024</option>
+    <option value=2025>2025</option>
+    <option value=2026>2026</option>
+    <option value=2027>2027</option>
+    <option value=2028>2028</option>
+    <option value=2029>2029</option>
+    <option value=2030>2030</option>
+  </select></form>
+</div>
+
+
+<!--<button name="jump" onclick="jump()">Go</button>-->
+<script src="script.js"></script>
+
+<!-- Optional JavaScript for bootstrap -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+        integrity="sha384-ueMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
