@@ -1,6 +1,6 @@
 
 .header-blue {
-  background:linear-gradient(#75e1a0, #ffffff);
+  background:linear-gradient(#89d9e1, #ffffff);
   background-color:#184e8e;
   padding-bottom:10px;
   font-family: 'Roboto', sans-serif;
@@ -161,6 +161,15 @@
   margin-bottom:50px;
   font-weight:100;
   line-height:1.4;
+  font-family: 'Roboto', sans-serif;
+  float: left;
+}
+
+#second{
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  -webkit-text-stroke: 2px black;
+
 }
 
 @media (min-width:992px) {
@@ -169,6 +178,8 @@
     margin-bottom:100px;
     line-height:1.2;
     font-size:75px;
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
   }
 }
 
