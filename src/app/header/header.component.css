@@ -1,13 +1,15 @@
+
 .header-blue {
-  background:linear-gradient(100deg, #5c1d2a, #89d9e1);
+  background:linear-gradient(#75e1a0, #ffffff);
   background-color:#184e8e;
-  padding-bottom:80px;
-  font-family:'Source Sans Pro', sans-serif;
+  padding-bottom:10px;
+  font-family: 'Roboto', sans-serif;
 }
 
 @media (min-width:768px) {
   .header-blue {
     padding-bottom:0;
+
   }
 }
 
@@ -15,10 +17,11 @@
   background:transparent;
   padding-top:.75rem;
   padding-bottom:.75rem;
-  color:#fff;
+  color: #818181;
   border-radius:0;
   box-shadow:none;
   border:none;
+
 }
 
 @media (min-width:768px) {
@@ -140,36 +143,37 @@
 }
 
 .header-blue .hero {
-  margin-top:0;
+  margin-top:10px;
   text-align:center;
 }
 
 @media (min-width:768px) {
   .header-blue .hero {
-    margin-top:0;
+    margin-top:20px;
     text-align:left;
   }
 }
 
 .header-blue .hero h1 {
-  color:#fff;
+  color: #000000;
   font-size:40px;
-  margin-top:0;
-  margin-bottom:15px;
-  font-weight:300;
+  margin-top:-50px;
+  margin-bottom:50px;
+  font-weight:100;
   line-height:1.4;
 }
 
 @media (min-width:992px) {
   .header-blue .hero h1 {
-    margin-top:10px;
-    margin-bottom:40px;
+    margin-top:-80px;
+    margin-bottom:100px;
     line-height:1.2;
+    font-size:75px;
   }
 }
 
 .header-blue .hero p {
-  color:rgba(255,255,255,0.8);
+  color: rgba(0, 0, 0, 0.8);
   font-size:20px;
   margin-bottom:30px;
   font-weight:300;
@@ -195,9 +199,9 @@
   position:absolute;
   width:88%;
   height:77%;
-  top:12%;
+  top:10px;
   border-radius:2px;
-  left:6%;
+  left:0;
   border:1px solid #444;
   background-color:#aaa;
   overflow:hidden;
@@ -207,7 +211,7 @@
 
 .header-blue .iphone-mockup .screen:before {
   content:'';
-  background-color:#fff;
+  background-color: #000000;
   position:absolute;
   width:70%;
   height:140%;
