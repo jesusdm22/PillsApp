@@ -6,8 +6,8 @@
   padding: 10px;
   font-size: 1.2em;
   border: 0;
-  background: #89d9e1;
-  color: black;
+  background: #ea4c4c;
+  color: #fff;
 }
 
 /* [CALENDAR] */
@@ -65,7 +65,7 @@
 }
 #cal-event textarea {
   display: block;
-  box-sizing: border-box;
+  box-sizing: padding-box;
   width: 90%;
   padding: 10px;
   margin: 10px 0;
@@ -77,7 +77,7 @@
   margin: 5px;
   font-size: 1.2em;
   border: 0;
-  background: #184e8e;
+  background: #ea4c4c;
   color: #fff;
 }
 
