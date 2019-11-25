@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Medicamento } from '../Medicamento';
 
 @Component({
   selector: 'app-detalles',
