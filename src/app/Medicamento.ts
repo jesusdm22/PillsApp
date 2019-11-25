@@ -1,3 +1,5 @@
+import {Tipo} from './Tipo';
+
 export class Medicamento {
   id: number;
   nombre: string;
