@@ -1,9 +1,27 @@
 
+
+<div id="page-body">
   <!-- [PERIOD SELECTOR] -->
   <div id="cal-date">
-    <select id="cal-mth"></select>
-    <select id="cal-yr"></select>
-    <input id="cal-set" type="button" value="SET"/>
+
+    <div class="row">
+      <!--Seleccionar mes-->
+      <div class="col-md-3">
+        <select id="cal-mth" class="form-control"></select>
+      </div>
+      <!--Seleccionar año-->
+      <div class="col-md-2">
+        <select id="cal-yr" class="form-control"></select>
+      </div>
+
+      <!--Guardar cambios-->
+      <div class="col-md-2">
+        <input id="cal-set" type="button" value="Ir a fecha" class="btn btn-success"/>
+      </div>
+
+    </div>
+
+
   </div>
 
   <!-- [CALENDAR] -->
@@ -11,4 +29,4 @@
 
   <!-- [EVENT] -->
   <div id="cal-event"></div>
-
+</div>

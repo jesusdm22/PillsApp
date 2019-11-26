@@ -2,13 +2,12 @@
 #cal-date {
   margin: 10px 0;
 }
-#cal-mth, #cal-yr, #cal-set {
-  padding: 10px;
-  font-size: 1.2em;
-  border: 0;
-  background: #ea4c4c;
-  color: #fff;
+#cal-mth, #cal-yr {
+  display: block;
+  border: 1px solid black;
+  color: black;
 }
+
 
 /* [CALENDAR] */
 #calendar {
@@ -65,7 +64,7 @@
 }
 #cal-event textarea {
   display: block;
-  box-sizing: padding-box;
+  box-sizing: border-box;
   width: 90%;
   padding: 10px;
   margin: 10px 0;

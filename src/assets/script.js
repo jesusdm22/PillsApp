@@ -1,6 +1,6 @@
 var cal = {
   /* [PROPERTIES] */
-  mName : ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], // Month Names
+  mName : ["Enero", "Febrero", "Maro", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"], // Month Names
   data : null, // Events for the selected period
   sDay : 0, // Current selected day
   sMth : 0, // Current selected month
@@ -64,7 +64,7 @@ var cal = {
     // First row - Days
     var cRow = document.createElement("tr"),
       cCell = null,
-      days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+      days = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
     if (cal.sMon) { days.push(days.shift()); }
     for (var d of days) {
       cCell = document.createElement("td");
@@ -110,12 +110,12 @@ var cal = {
     cal.sDay = el.getElementsByClassName("dd")[0].innerHTML;
 
     // DRAW FORM
-    var tForm = "<h1>" + (cal.data[cal.sDay] ? "EDIT" : "ADD") + " EVENT</h1>";
+    var tForm = "<h4>" + (cal.data[cal.sDay] ? "Editar" : "Agregar") + " evento</h4>";
     tForm += "<div id='evt-date'>" + cal.sDay + " " + cal.mName[cal.sMth] + " " + cal.sYear + "</div>";
-    tForm += "<textarea id='evt-details' required>" + (cal.data[cal.sDay] ? cal.data[cal.sDay] : "") + "</textarea>";
-    tForm += "<input type='button' value='Close' onclick='cal.close()'/>";
-    tForm += "<input type='button' value='Delete' onclick='cal.del()'/>";
-    tForm += "<input type='submit' value='Save'/>";
+    tForm += "<textarea class='form-control' id='evt-details' cols='1'>" + (cal.data[cal.sDay] ? cal.data[cal.sDay] : "") + "</textarea><br>";
+    tForm += "<input class='btn black' type='button' value='Cerrar' onclick='cal.close()'/>&nbsp;&nbsp;";
+    tForm += "<input class='btn red' type='button' value='Eliminar' onclick='cal.del()'/>&nbsp;&nbsp;";
+    tForm += "<input class='btn green' type='submit' value='Guardar'/>";
 
     // ATTACH
     var eForm = document.createElement("form");
