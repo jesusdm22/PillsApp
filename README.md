@@ -1,27 +1,56 @@
 # PillsApp
+Descripción:
+	Se trata de una aplicación con la cual podemos llevar un registro de los
+	medicamentos que tenemos que tomar, añadiendo recordatorios, tipo de medicamento, dosis, 
+	y descripción del mismo.
+	
+	Con esto resolvemos la problemática de que por ejemplo a las personas que le lleven los medicamentos 
+	a sus familiares de edad más avanzada tengan una fácil gestión de los mismos.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.8.
 
-## Development server
+# Equipo:
+	-Marcos Ortega Cereceto
+	-Cristian Cabrera González
+	-Raúl Vázquez Ojeda
+	-Jesús Díaz Muñoz (Portavoz)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+# Acceso al mockup para ver el diseño por si hay dudas:
+	https://wireframepro.mockflow.com/view/M07f104073cfd5f5df7b05028c384dbb51574080008946
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Colores y fuente: 
+		Fuente -> Roboto
+		Colores: #89d9e1 (Azul)
+			 #000000 (Negro)
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+# Elementos:
+	Componentes: (Seguir el mockup de arriba)
+		-header
+		-calendario
+		-lista
+		-detalles
+		-agregarMedicamento
+		-footer
+	
+	 Clases:
+		-medicamento
+			·id (number)
+			·nombre (string)
+			·tipo (tipo)
+			·dosis (number)
+			·fechaHora (string)
+			·descripcion (string)
+		-tipo
+		   	·id (number)
+			·nombre (string)
+	Objetos:
+		-listaMedicamentos (medicamento)
+		-listaUsuario (medicamento)
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+# Segmentación del trabajo:
+	Raul -> 	header, lista
+	Marcos -> 	footer, agregarMedicamento
+	Cristian ->	detalles, Clase <tipo>
+	Jesus ->	calendario, Clase <medicamento>
