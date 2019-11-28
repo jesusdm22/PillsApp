@@ -1,7 +1,9 @@
-
-.flotante {
-  display: scroll;
-
-
-
+a {
+  background-color: #89d9e1;
+}
+.material-icons {
+  color: black;
+}
+.material-icons:hover {
+  color: white;
 }
