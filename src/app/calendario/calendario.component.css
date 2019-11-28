@@ -87,3 +87,15 @@ html, body, textarea, input{
 #page-body{
   max-width: 1000px;
 }
+
+
+.boton {
+  text-align: right;
+  color: black;
+}
+
+#cal-set {
+  background-color: #89d9e1;
+  color: black;
+  border: none;
+}
