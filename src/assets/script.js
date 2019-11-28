@@ -1,6 +1,6 @@
 var cal = {
   /* [PROPERTIES] */
-  mName : ["Enero", "Febrero", "Maro", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"], // Month Names
+  mName : ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"], // Month Names
   data : null, // Events for the selected period
   sDay : 0, // Current selected day
   sMth : 0, // Current selected month
