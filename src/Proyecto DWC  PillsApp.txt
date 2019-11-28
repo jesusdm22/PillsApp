@@ -57,3 +57,10 @@ Segmentación del trabajo:
 	Marcos -> 	footer, agregarMedicamento
 	Cristian ->	detalles, Clase <tipo>
 	Jesus ->	calendario, Clase <medicamento>
+
+
+SOMBRAS:
+
+style="-webkit-box-shadow: -1px -1px 25px 12px rgba(0,0,0,0.29);
+-moz-box-shadow: -1px -1px 25px 12px rgba(0,0,0,0.29);
+box-shadow: -1px -1px 25px 12px rgba(0,0,0,0.29); padding: 20px;"
