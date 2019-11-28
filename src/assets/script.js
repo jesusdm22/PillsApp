@@ -112,7 +112,7 @@ var cal = {
     // DRAW FORM
     var tForm = "<h4>" + (cal.data[cal.sDay] ? "Editar" : "Agregar") + " evento</h4>";
     tForm += "<div id='evt-date'>" + cal.sDay + " " + cal.mName[cal.sMth] + " " + cal.sYear + "</div>";
-    tForm += "<textarea class='form-control' id='evt-details' cols='1'>" + (cal.data[cal.sDay] ? cal.data[cal.sDay] : "") + "</textarea><br>";
+    tForm += "<input class='form-control' id='evt-details' cols='1'>" + (cal.data[cal.sDay] ? cal.data[cal.sDay] : "") + "</input><br>";
     tForm += "<input class='btn black' type='button' value='Cerrar' onclick='cal.close()'/>&nbsp;&nbsp;";
     tForm += "<input class='btn red' type='button' value='Eliminar' onclick='cal.del()'/>&nbsp;&nbsp;";
     tForm += "<input class='btn green' type='submit' value='Guardar'/>";
@@ -145,7 +145,7 @@ var cal = {
   del : function () {
     // cal.del() : Delete event for selected date
 
-    if (confirm("Remove event?")) {
+    if (confirm("¿Eliminar el evento?")) {
       delete cal.data[cal.sDay];
       localStorage.setItem("cal-" + cal.sMth + "-" + cal.sYear, JSON.stringify(cal.data));
       cal.list();
