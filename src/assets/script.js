@@ -162,7 +162,7 @@ window.addEventListener("load", function () {
 
   // APPEND MONTHS SELECTOR
   var month = document.getElementById("cal-mth");
-  for (var i = 0; i < 12; i++) {
+  for (var i = 0; i < 6; i++) {
     var opt = document.createElement("option");
     opt.value = i;
     opt.innerHTML = cal.mName[i];
@@ -173,7 +173,7 @@ window.addEventListener("load", function () {
   // APPEND YEARS SELECTOR
   // Set to 10 years range. Change this as you like.
   var year = document.getElementById("cal-yr");
-  for (var i = nowYear-10; i<=nowYear+10; i++) {
+  for (var i = nowYear-5; i<=nowYear+5; i++) {
     var opt = document.createElement("option");
     opt.value = i;
     opt.innerHTML = i;
