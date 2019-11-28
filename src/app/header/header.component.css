@@ -28,27 +28,32 @@
   .header-blue .navbar {
     padding-top:1rem;
     padding-bottom:1rem;
+
   }
 }
 
 .header-blue .navbar .navbar-brand {
   font-weight:bold;
   color:inherit;
+
 }
 
 .header-blue .navbar .navbar-brand:hover {
   color:#f0f0f0;
+
 }
 
 .header-blue .navbar .navbar-collapse {
   border-top:1px solid rgba(255,255,255,0.3);
   margin-top:.5rem;
+
 }
 
 @media (min-width:768px) {
   .header-blue .navbar .navbar-collapse {
     border-color:transparent;
     margin:0;
+
   }
 }
 
@@ -56,29 +61,35 @@
   color:#d9d9d9;
   margin-right:.5rem;
   text-decoration:none;
+
 }
 
 .header-blue .navbar .navbar-collapse span .login:hover {
   color:#fff;
+
 }
 
 .header-blue .navbar .navbar-toggler {
   border-color:rgba(255,255,255,0.3);
+
 }
 
 .header-blue .navbar .navbar-toggler:hover, .header-blue .navbar-toggler:focus {
   background:none;
+
 }
 
 .header-blue .navbar .navbar-nav a.active, .header-blue .navbar .navbar-nav > .show .dropdown-item {
   background:none;
   box-shadow:none;
+
 }
 
 @media (min-width: 768px) {
   .header-blue .navbar-nav .nav-link {
     padding-left:.7rem;
     padding-right:.7rem;
+
   }
 }
 
@@ -86,6 +97,7 @@
   .header-blue .navbar-nav .nav-link {
     padding-left:1.2rem;
     padding-right:1.2rem;
+
   }
 }
 
@@ -94,15 +106,18 @@
   box-shadow:0 4px 8px rgba(0,0,0,.1);
   background-color:#fff;
   border-radius:2px;
+
 }
 
 .header-blue .navbar .dropdown-menu .dropdown-item:focus, .header-blue .navbar .dropdown-menu .dropdown-item {
   line-height:2;
   color:#37434d;
+
 }
 
 .header-blue .navbar .dropdown-menu .dropdown-item:focus, .header-blue .navbar .dropdown-menu .dropdown-item:hover {
   background:#ebeff1;
+
 }
 
 .header-blue .action-button, .header-blue .action-button:not(.disabled):active {
@@ -115,14 +130,17 @@
   background:transparent;
   transition:background-color 0.25s;
   outline:none;
+
 }
 
 .header-blue .action-button:hover {
   color:#fff;
+
 }
 
 .header-blue .navbar .form-inline label {
   color:#d9d9d9;
+
 }
 
 .header-blue .navbar .form-inline .search-field {
@@ -136,15 +154,18 @@
   box-shadow:none;
   color:inherit;
   transition:border-bottom-color 0.3s;
+
 }
 
 .header-blue .navbar .form-inline .search-field:focus {
   border-bottom:1px solid #ccc;
+
 }
 
 .header-blue .hero {
   margin-top:10px;
   text-align:center;
+  width: 100%;
 }
 
 @media (min-width:768px) {
