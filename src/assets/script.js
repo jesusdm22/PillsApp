@@ -108,6 +108,7 @@ var cal = {
 
     // FETCH EXISTING DATA
     cal.sDay = el.getElementsByClassName("dd")[0].innerHTML;
+    alert(cal.sDay + "/" + cal.sMth+1 + "/" + cal.sYear);
 
     // DRAW FORM
     var tForm = "<h4>" + (cal.data[cal.sDay] ? "Editar" : "Agregar") + " evento</h4>";
