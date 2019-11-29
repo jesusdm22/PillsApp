@@ -1,1 +1,22 @@
+.dd{
+  text-align: center;
+}
+.dd:hover {
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #89d9e1;
+  border-radius: 50px;
+}
 
+.dd:active {
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #00b2e1;
+  border-radius: 50px;
+}
+
+.head{
+  font-weight: bold;
+}

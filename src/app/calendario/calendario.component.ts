@@ -13,4 +13,8 @@ export class CalendarioComponent implements OnInit {
   ngOnInit() {
   }
 
+  getDiaClicado() {
+    return document.getElementById('evt-date').innerHTML;
+  }
+
 }
