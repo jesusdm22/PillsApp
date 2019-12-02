@@ -1,9 +1,9 @@
-import {Tipo} from './Tipo';
+
 
 export class Medicamento {
   id: number;
   nombre: string;
-  tipo: Tipo;
+  tipo: string;
   dosis: number;
   fechaHora: string;
   descripcion: string;

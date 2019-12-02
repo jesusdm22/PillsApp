@@ -6,7 +6,8 @@ import {Medicamento} from '../Medicamento';
 @Component({
   selector: 'app-lista',
   templateUrl: './lista.component.html',
-  styleUrls: ['./lista.component.css']
+  styleUrls: ['./lista.component.css',
+  './la/css/line-awesome.css']
 })
 export class ListaComponent implements OnInit {
 

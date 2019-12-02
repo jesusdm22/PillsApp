@@ -1,13 +1,18 @@
+
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
+<link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+
 <!------ Include the above in your HEAD tag ---------->
 
 <div class="container" style="-webkit-box-shadow: -1px -1px 25px 12px rgba(0,0,0,0.29);
 -moz-box-shadow: -1px -1px 25px 12px rgba(0,0,0,0.29);
 box-shadow: -1px -1px 25px 12px rgba(0,0,0,0.29); padding: 20px;">
   <div class="row">
-    <div class="col-md-12">
+    git pu<div class="col-md-12">
       <div class="panel">
         <div class="panel-heading">
           <h4>{{diaActual}}</h4>
@@ -24,10 +29,12 @@ box-shadow: -1px -1px 25px 12px rgba(0,0,0,0.29); padding: 20px;">
           <ul class="list-group">
             <li class="list-group-item" *ngFor="let medicamento of medicamentos">
               <div class="checkbox">
-                  {{medicamento.nombre}}
+                <h4>{{medicamento.nombre}}</h4>
               </div>
-              <div class="pull-right action-buttons">
-                <span class="glyphicon glyphicon-pencil"></span>
+              <div class="pull-right action-buttons icon">
+                <i class="las la-{{medicamento.tipo}}"
+                   style="font-size: 40px; color: black;
+                   background-color: #89d9e1; border-radius: 50%; padding: 10%;"></i>
               </div>
 
             </li>
