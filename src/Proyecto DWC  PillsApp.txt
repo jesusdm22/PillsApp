@@ -60,6 +60,11 @@ Segmentación del trabajo:
 
 https://imgur.com/a/ccmeEV1
 
+PASTILLITA --> pills
+JERINGUILLA --> injection-syringe
+MEDICINA --> test-bottle
+
+
 SOMBRAS:
 
 style="-webkit-box-shadow: -1px -1px 25px 12px rgba(0,0,0,0.29);
