@@ -58,7 +58,6 @@ Segmentación del trabajo:
 	Cristian ->	detalles, Clase <tipo>
 	Jesus ->	calendario, Clase <medicamento>
 
-
 https://imgur.com/a/ccmeEV1
 
 SOMBRAS:

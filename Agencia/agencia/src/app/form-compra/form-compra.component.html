@@ -1,0 +1,85 @@
+<div class="container">
+<div class="col-md-8 order-md-1">
+  <h4 class="mb-3" id="acogeForm">Compra de viaje</h4>
+  <form class="needs-validation" novalidate>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="firstName">Nombre</label>
+        <input type="text" class="form-control" id="firstName" placeholder="" required>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="lastName">Apellidos</label>
+        <input type="text" class="form-control" id="lastName" placeholder="" required>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="email">Correo electrónico</label>
+      <input type="email" class="form-control" id="email" placeholder="you@example.com">
+    </div>
+
+    <div class="mb-3">
+      <label for="viaje">Tipo de viaje</label>
+      <input type="text" class="form-control" id="viaje" value="{{viaje.titulo}}" readonly="yes">
+    </div>
+
+    <div class="row">
+      <div class="col-md-5 mb-3">
+        <label for="modo">Modo de desplazamiento</label>
+        <input type="text" id="modo" class="form-control" value="{{viaje.desplazamiento}}" readonly="yes">
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="descripcion">Descripción</label>
+        <input type="text" class="form-control" id="descripcion" value="{{viaje.descripcion}}" readonly="yes">
+      </div>
+    </div>
+    <hr class="mb-4">
+    <div class="custom-control custom-checkbox">
+      <input type="checkbox" class="custom-control-input" id="same-address">
+      <label class="custom-control-label" for="same-address" style="margin-top: 80px"><b>Acepto</b> las condiciones del servicio</label>
+      <img [src]="viaje.imgUrl" [alt]="viaje.titulo" width="400" height="200" style="margin-left: 25px;">
+    </div>
+    <hr class="mb-4">
+
+    <h4 class="mb-3">Métodos de pago</h4>
+
+    <div class="d-block my-3">
+      <div class="custom-control custom-radio">
+        <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+        <label class="custom-control-label" for="credit">Tarjeta de crédito</label>
+      </div>
+      <div class="custom-control custom-radio">
+        <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+        <label class="custom-control-label" for="debit">Tarjeta de débito</label>
+      </div>
+      <div class="custom-control custom-radio">
+        <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
+        <label class="custom-control-label" for="paypal">PayPal</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="cc-name">Titular de la Tarjeta</label>
+        <input type="text" class="form-control" id="cc-name" placeholder="" required>
+        <small class="text-muted">Nombre del titular que aparece en la tarjeta</small>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="cc-number">Número de Tarjeta de Crédito</label>
+        <input type="text" class="form-control" id="cc-number" placeholder="" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 mb-3">
+        <label for="cc-expiration">Fecha de caducidad</label>
+        <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="cc-cvv">CVV</label>
+        <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+      </div>
+    </div>
+    <hr class="mb-4">
+    <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="procesar()" style="margin-bottom: 20px">Continuar</button>
+  </form>
+</div>
+</div>
