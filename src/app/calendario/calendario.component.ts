@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ListaComponent} from '../lista/lista.component';
 
 @Component({
   selector: 'app-calendario',
@@ -14,7 +15,8 @@ export class CalendarioComponent implements OnInit {
   }
 
   getDiaClicado() {
-    return document.getElementById('evt-date').innerHTML;
+    const dia = document.getElementById('evt-date').innerHTML;
+    sessionStorage.setItem('diaClicado', dia);
   }
 
 }
