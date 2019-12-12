@@ -25,6 +25,7 @@ body,html {
   margin-right: -8px;
   margin-left: -8px;
   margin-bottom: -20px;
+  font-family: 'Roboto', sans-serif;
 }
 .html{margin:0;padding:0}
 
@@ -39,7 +40,7 @@ body,html {
 
 /*---------------------------------------------*/
 .a {
-  font-family: OpenSans-Regular;
+  font-family: 'Roboto', sans-serif;
   font-size: 14px;
   line-height: 1.7;
   color: #666666;
@@ -173,10 +174,12 @@ label {
   background: -o-linear-gradient(left, #6a11cb, #2575fc);
   background: -moz-linear-gradient(left, #6a11cb, #2575fc);
   background-image: url("../img/Fondo.png");
+  font-family: 'Roboto', sans-serif;
 }
 
 .wrap-login100 {
   width: 560px;
+  font-family: 'Roboto', sans-serif;
 }
 
 
@@ -192,17 +195,18 @@ label {
   display: -ms-flexbox;
   display: flex;
   flex-wrap: wrap;
+  font-family: 'Roboto', sans-serif;
 }
 
 .login100-form-title {
   width: 100%;
   display: block;
-  font-family: OpenSans-Regular;
   font-size: 30px;
   color: #fefefe;
   line-height: 1.2;
   text-transform: uppercase;
   text-align: center;
+  font-family: 'Roboto', sans-serif;
 }
 
 
@@ -224,6 +228,7 @@ label {
   border: 1px solid #e0e0e0;
   border-bottom: none;
   background-color: #fff;
+
 }
 
 .wrap-input100.rs1 {
@@ -236,7 +241,7 @@ label {
 }
 
 .label-input100 {
-  font-family: OpenSans-Bold;
+  font-family: 'Roboto', sans-serif;
   font-size: 15px;
   color: #555555;
   line-height: 1.2;
@@ -253,10 +258,12 @@ label {
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
   transition: all 0.4s;
+  justify-content: center;
+
 }
 
 .input100 {
-  font-family: OpenSans-Bold;
+  font-family: 'Roboto', sans-serif;
   font-size: 15px;
   color: #555555;
   line-height: 1.2;
@@ -265,6 +272,7 @@ label {
   width: 100%;
   background: transparent;
   padding: 0 30px;
+
 }
 
 input.input100 {
@@ -308,11 +316,11 @@ input.input100 {
   display: -ms-flexbox;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+
 }
 
 .login100-form-btn {
-  font-family: OpenSans-Bold;
+  font-family: 'Roboto', sans-serif;
   font-size: 15px;
   color: #fff;
   line-height: 1.2;
@@ -400,7 +408,7 @@ input.input100 {
   right: 12px;
   pointer-events: none;
 
-  font-family: OpenSans-Bold;
+  font-family: 'Roboto', sans-serif;
   color: #c80000;
   font-size: 13px;
   line-height: 1.4;
@@ -417,7 +425,7 @@ input.input100 {
 
 .alert-validate::after {
   content: "\f12a";
-  font-family: FontAwesome;
+  font-family: 'Roboto', sans-serif;
   display: block;
   position: absolute;
   z-index: 110;

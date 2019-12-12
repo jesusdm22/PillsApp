@@ -15,6 +15,15 @@ import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import {RouterModule, Routes} from "@angular/router";
+import { IndexComponent } from './index/index.component';
+
+const routes: Routes = [
+  {path: '',component: LoginComponent, pathMatch: 'full'},
+  {path: 'login', component: LoginComponent},
+  {path: 'index', component: IndexComponent},
+  {path: '**', redirectTo: '/', pathMatch: 'full'}
+];
 
 @NgModule({
   declarations: [
@@ -26,14 +35,16 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     AgregarMedicamentoComponent,
     FooterComponent,
     LoginComponent,
-    AplicacionComponent
+    AplicacionComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-    AngularFireStorageModule // imports firebase/storage only needed for storage features
+    AngularFireStorageModule, // imports firebase/storage only needed for storage features
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
