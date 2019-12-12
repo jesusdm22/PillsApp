@@ -20,7 +20,6 @@ import { IndexComponent } from './index/index.component';
 
 const routes: Routes = [
   {path: '',component: LoginComponent, pathMatch: 'full'},
-  {path: 'login', component: LoginComponent},
   {path: 'index', component: IndexComponent},
   {path: '**', redirectTo: '/', pathMatch: 'full'}
 ];
