@@ -17,6 +17,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import {RouterModule, Routes} from "@angular/router";
 import { IndexComponent } from './index/index.component';
+import {LoginService} from "./login/login.service";
+import {ifTrue} from "codelyzer/util/function";
 
 const routes: Routes = [
   {path: '',component: LoginComponent, pathMatch: 'full'},
