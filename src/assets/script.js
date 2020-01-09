@@ -111,7 +111,7 @@ var cal = {
 
 
     // DRAW FORM
-    var tForm = "<h4>" + (cal.data[cal.sDay] ? "Editar" : "Agregar") + " evento</h4>";
+    var tForm = "<h4>" + (cal.data[cal.sDay] ? "Editar" : "Agregar") + " recordatorio de medicacion</h4>";
     tForm += "<div id='evt-date'>" + cal.sDay + " " + cal.mName[cal.sMth] + " " + cal.sYear + "</div>";
     tForm += "<input class='form-control' id='evt-details' cols='1'>" + (cal.data[cal.sDay] ? cal.data[cal.sDay] : "") + "</input><br>";
     tForm += "<input class='btn black' type='button' value='Cerrar' onclick='cal.close()'/>&nbsp;&nbsp;";
@@ -163,7 +163,7 @@ window.addEventListener("load", function () {
 
   // APPEND MONTHS SELECTOR
   var month = document.getElementById("cal-mth");
-  for (var i = 0; i < 6; i++) {
+  for (var i = 0; i < 12; i++) {
     var opt = document.createElement("option");
     opt.value = i;
     opt.innerHTML = cal.mName[i];
